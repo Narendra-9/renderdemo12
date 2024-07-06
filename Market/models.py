@@ -14,10 +14,17 @@ class User(db.Model, UserMixin):
 
     @property
     def prettier_budget(self):
-        if len(str(self.budget)) >=4:
-            return f'{str(self.budget)[:-3]},{str(self.budget)[-3:]}$'
+        budget_str = str(self.budget)
+        if len(budget_str) > 3:
+            # Split the string into two parts: last three digits and the rest
+            last_three = budget_str[-3:]
+            rest = budget_str[:-3]
+            # Add commas after every two digits from the right in the rest part
+            rest_with_commas = ','.join([rest[max(i-2, 0):i] for i in range(len(rest), 0, -2)][::-1])
+            formatted_budget = rest_with_commas + ',' + last_three
         else:
-            return f'{self.budget}$'
+            formatted_budget = budget_str
+        return f'{formatted_budget}₹'
 
     @property
     def password(self):
