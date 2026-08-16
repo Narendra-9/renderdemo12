@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 app=Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI']="postgresql://flaskmarket_user:LK90qqnZeS9kstXGijtlJgDRo9JYwlvn@dpg-cpn960g8fa8c73asv6ug-a.oregon-postgres.render.com/flaskmarket"
+app.config['SQLALCHEMY_DATABASE_URI']="postgresql://marketdb_fltp_user:jeQA0VbCsSeLnFS5Iz7p34aOdFuvEEQX@dpg-da0s2t5bedkc73bg34n0-a/marketdb_fltp"
 #
 app.config['SECRET_KEY']='ec897fgh78457845754d65d'
 db=SQLAlchemy(app)
